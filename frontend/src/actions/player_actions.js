@@ -18,9 +18,9 @@ const receivePlayer = receivedPlayer => {
 
 export const fetchPlayers = () => dispatch => {
     PlayerApiUtil.fetchPlayers()
-        .then(receivedPlayers => dispatch(receivePlayers(receivedPlayers)))
+        .then(receivedPlayers => {dispatch(receivePlayers(receivedPlayers.data))})
 };
 export const updatePlayer = playerId => dispatch => {
     PlayerApiUtil.updatePlayer(playerId)
-        .then(receivedPlayer => dispatch(receivePlayer(receivedPlayer)))
+        .then(receivedPlayer => dispatch(receivePlayer(receivedPlayer.data)))
 }

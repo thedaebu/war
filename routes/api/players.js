@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
         .then(players => res.json(players))
 })
 
-router.get('/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     Player.findById({ _id: req.params.id })
         .then((player) =>{
             player.wins += 1;

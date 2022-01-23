@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI
 const bodyParser = require('body-parser');
 const players = require('./routes/api/players');
-const Player = require('./models/Player')
 
 mongoose
     .connect(db, { useNewUrlParser: true })
