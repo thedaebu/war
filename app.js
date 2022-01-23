@@ -16,8 +16,7 @@ app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
     Player.find()
-        .then(players => res.json(players))
-    res.send('wassup')
+        .then(players => res.json(players))    
 })
 
 app.use('/api/players', players);
