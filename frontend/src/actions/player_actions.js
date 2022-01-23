@@ -20,7 +20,7 @@ export const fetchPlayers = () => dispatch => {
     PlayerApiUtil.fetchPlayers()
         .then(receivedPlayers => dispatch(receivePlayers(receivedPlayers)))
 };
-export const updatePlayer = updatedPlayer => dispatch => {
-    PlayerApiUtil.updatePlayer(updatedPlayer)
+export const updatePlayer = playerId => dispatch => {
+    PlayerApiUtil.updatePlayer(playerId)
         .then(receivedPlayer => dispatch(receivePlayer(receivedPlayer)))
 }

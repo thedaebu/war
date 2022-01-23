@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import axios from 'axios';
+import Root from './components/root';
+import configureStore from './store/store';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-window.axios = axios
+document.addEventListener("DOMContentLoaded", () => {
+    const store = configureStore();
+    const root = document.getElementById("root");
+    window.getState = store.getState;
+
+    ReactDOM.render(<Root store={store}/>, root);
+})
+

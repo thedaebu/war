@@ -15,8 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-    Player.find()
-        .then(players => res.json(players))    
+    res.json("wassup")   
 })
 
 app.use('/api/players', players);
