@@ -2,10 +2,12 @@
 
 # by Edward Kim
 
-<pre>Please run the following commands in the terminal to install the necessary NPM modules:
+<pre>Please run the following commands in the terminal to install the necessary NPM modules:</pre>
 
+<code>
 npm install
 npm run frontend-install
+</code>
 
 Then, please run the following commands in the terminal to launch the server and run the app:
 
