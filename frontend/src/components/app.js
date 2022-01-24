@@ -1,17 +1,11 @@
 import React from "react";
-import {
-  Route,
-  Redirect,
-  Switch,
-  Link,
-  HashRouter
-} from "react-router-dom";
+import GameBoardContainer from "./game/game_board_container";
 
 function App() {
     return (
-        <div>
-            Ayo
-        </div>
+        <>
+            <GameBoardContainer/>
+        </>
     )
 }
 
