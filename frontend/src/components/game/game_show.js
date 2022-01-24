@@ -124,8 +124,13 @@ function GameShow(props) {
                 </div>
             )
         } else {
-            const player1Card = player1Deck[warIndex-2];
-            const player2Card = player2Deck[warIndex-2];
+            const player1Card = player1Deck[warIndex-2] !== undefined
+                ? player1Deck[warIndex-2]
+                : player1Deck[warIndex-3];
+            const player2Card = player2Deck[warIndex-2] !== undefined
+                ? player2Deck[warIndex-2]
+                : player2Deck[warIndex-3];
+
             let message;
             if (values[player1Card.value] > values[player2Card.value]) {
                 message = 'Player 1 Wins';
@@ -134,6 +139,7 @@ function GameShow(props) {
             } else {
                 message = 'War';
             }
+
             if (message !== 'War') {
                 return (
                     <div>
@@ -182,7 +188,7 @@ function GameShow(props) {
                                     Wins: {player1.wins}
                                 </p>
                                 <p className='cards'>
-                                    Cards: {player1Deck.length-1}
+                                    Cards: {player1Deck.length - warIndex - 1}
                                 </p>
                             </div>
                             <div className='card'>
@@ -196,7 +202,7 @@ function GameShow(props) {
                                     Wins: {player2.wins}
                                 </p>
                                 <p className='cards'>
-                                    Cards: {player2Deck.length-1}
+                                    Cards: {player2Deck.length - warIndex - 1}
                                 </p>
                             </div>
                             <div className='card'>
