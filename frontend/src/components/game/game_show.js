@@ -27,8 +27,8 @@ function GameShow(props) {
     function gameMenu() {
         if (player1Deck.length === 0 && player2Deck.length === 0) {
             return (
-                <div>
-                    <button onClick={startGame}>
+                <div className="game-board">
+                    <button className='start-button' onClick={startGame}>
                         Start Game
                     </button>
                 </div>
@@ -46,26 +46,36 @@ function GameShow(props) {
                 .then(() => fetchPlayers);
 
             return (
-                <div>
-                    <div className='Player1'>
-                        {player1.wins}
-                        {player1Deck.length}
+                <div className='game-board'>
+                    <div className='stats'>
+                            <p className='wins'>
+                                Wins: {player1.wins}
+                            </p>
+                            <p className='cards'>
+                                Cards: {player1Deck.length-1}
+                            </p>
+                        </div>
+                    <div className='player-2'>
+                        <div className='stats'>
+                            <p className='wins'>
+                                Wins: {player2.wins}
+                            </p>
+                            <p className='cards'>
+                                Cards: {player2Deck.length-1}
+                            </p>
+                        </div>
                     </div>
-                    <div className='Player2'>
-                        {player2.wins}
-                        {player2Deck.length}
-                    </div>
-                    <div>
+                    <div className='message'>
                         {winnerName} wins!
                     </div>
-                    <button onClick={startGame}>
-                        Start New Game
+                    <button className='action-button' onClick={startGame}>
+                        <p>Start New Game</p>
                     </button>
                 </div>
             )
         } else {
             return (
-                <div>
+                <div className='game-board'>
                     {playGame()}
                 </div>
             )
@@ -82,16 +92,34 @@ function GameShow(props) {
         if (showCardStatus === false) {
             return (
                 <div>
-                    <div className='Player1'>
-                        {player1.wins}
-                        {player1Deck.length}
+                    <div className='player-1'>
+                        <div className='stats'>
+                            <p className='wins'>
+                                Wins: {player1.wins}
+                            </p>
+                            <p className='cards'>
+                                Cards: {player1Deck.length}
+                            </p>
+                        </div>
+                        <div className='card'>
+                        </div>
                     </div>
-                    <div className='Player2'>
-                        {player2.wins}
-                        {player2Deck.length}
+                    <div className='player-2'>
+                        <div className='stats'>
+                            <p className='wins'>
+                                Wins: {player2.wins}
+                            </p>
+                            <p className='cards'>
+                                Cards: {player2Deck.length}
+                            </p>
+                        </div>
+                        <div className='card'>
+                        </div>
                     </div>
-                    <button onClick={showCards}>
-                        Show Cards
+                    <div className='message'>
+                    </div>
+                    <button className='action-button' onClick={showCards}>
+                        <p>Show Cards</p>
                     </button>
                 </div>
             )
@@ -109,46 +137,78 @@ function GameShow(props) {
             if (message !== 'War') {
                 return (
                     <div>
-                        <div className='Player1'>
-                            {player1.wins}
-                            {player1Deck.length-1}
-                            {player1Card.value}
-                            {player1Card.suit}
+                        <div className='player-1'>
+                            <div className='stats'>
+                                <p className='wins'>
+                                    Wins: {player1.wins}
+                                </p>
+                                <p className='cards'>
+                                    Cards: {player1Deck.length-1}
+                                </p>
+                            </div>
+                            <div className='card'>
+                                {player1Card.value}
+                                {player1Card.suit}
+                            </div>
                         </div>
-                        <div className='Player2'>
-                            {player2.wins}
-                            {player2Deck.length-1}
-                            {player2Card.value}
-                            {player2Card.suit}
+                        <div className='player-2'>
+                            <div className='stats'>
+                                <p className='wins'>
+                                    Wins: {player2.wins}
+                                </p>
+                                <p className='cards'>
+                                    Cards: {player2Deck.length-1}
+                                </p>
+                            </div>
+                            <div className='card'>
+                                {player2Card.value}
+                                {player2Card.suit}
+                            </div>
                         </div>
-                        <div>
+                        <div className='message'>
                             {message}
                         </div>
-                        <button onClick={() => calculateCards(player1Card, player2Card)}>
-                            Take Card
+                        <button className='action-button' onClick={() => calculateCards(player1Card, player2Card)}>
+                            <p>Take Card</p>
                         </button>
                     </div>
                 )
             } else {
                 return (
                     <div>
-                        <div className='Player1'>
-                            {player1.wins}
-                            {player1Deck.length-warIndex+1}
-                            {player1Card.value}
-                            {player1Card.suit}
+                        <div className='player-1'>
+                            <div className='stats'>
+                                <p className='wins'>
+                                    Wins: {player1.wins}
+                                </p>
+                                <p className='cards'>
+                                    Cards: {player1Deck.length-1}
+                                </p>
+                            </div>
+                            <div className='card'>
+                                {player1Card.value}
+                                {player1Card.suit}
+                            </div>
                         </div>
-                        <div className='Player2'>
-                            {player2.wins}
-                            {player2Deck.length-warIndex+1}
-                            {player2Card.value}
-                            {player2Card.suit}
+                        <div className='player-2'>
+                            <div className='stats'>
+                                <p className='wins'>
+                                    Wins: {player2.wins}
+                                </p>
+                                <p className='cards'>
+                                    Cards: {player2Deck.length-1}
+                                </p>
+                            </div>
+                            <div className='card'>
+                                {player2Card.value}
+                                {player2Card.suit}
+                            </div>
                         </div>
-                        <div>
+                        <div className='message'>
                             {message}
                         </div>
-                        <button onClick={handleWar}>
-                            War
+                        <button className='action-button' onClick={handleWar}>
+                            <p>War</p>
                         </button>
                     </div>
                 )
