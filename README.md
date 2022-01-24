@@ -1,6 +1,6 @@
-## War
+# War
 
-# by Edward Kim
+## by Edward Kim
 
 Please run the following commands in the terminal to install the necessary NPM modules:
 
