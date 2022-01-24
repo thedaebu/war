@@ -43,7 +43,7 @@ function GameShow(props) {
                 : 'Player 2';
 
             updatePlayer(winner._id)
-                .then(() => fetchPlayers);
+                .then(() => fetchPlayers());
 
             return (
                 <div className='game-board'>
